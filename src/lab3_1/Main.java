@@ -3,9 +3,6 @@
  */
 package lab3_1;
 
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,21 +13,25 @@ import javafx.stage.Stage;
 import lab3_1.model.User;
 import lab3_1.security.Authenticator;
 
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Main Application. This class handles navigation and user session.
  */
 public class Main extends Application {
 
-    private Stage stage;
-    private User loggedUser;
     private final double MINIMUM_WINDOW_WIDTH = 390.0;
     private final double MINIMUM_WINDOW_HEIGHT = 500.0;
+    private Stage stage;
+    private User loggedUser;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Application.launch(Main.class, (String[])null);
+        Application.launch(Main.class, (String[]) null);
     }
 
     @Override
@@ -50,8 +51,8 @@ public class Main extends Application {
     public User getLoggedUser() {
         return loggedUser;
     }
-        
-    public boolean userLogging(String userId, String password){
+
+    public boolean userLogging(String userId, String password) {
         if (Authenticator.validate(userId, password)) {
             loggedUser = User.of(userId);
             gotoProfile();
@@ -60,12 +61,12 @@ public class Main extends Application {
             return false;
         }
     }
-    
-    void userLogout(){
+
+    void userLogout() {
         loggedUser = null;
         gotoLogin();
     }
-    
+
     private void gotoProfile() {
         try {
             ProfileController profile = (ProfileController) replaceSceneContent("profile.fxml");
@@ -94,7 +95,7 @@ public class Main extends Application {
             page = (AnchorPane) loader.load(in);
         } finally {
             in.close();
-        } 
+        }
         Scene scene = new Scene(page, 800, 600);
         stage.setScene(scene);
         stage.sizeToScene();

@@ -1,45 +1,29 @@
 package lab3_2;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
 import javafx.scene.control.Menu;
+import javafx.scene.control.RadioMenuItem;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.effect.Glow;
 import javafx.scene.effect.SepiaTone;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
 import lab3_2.model.PageData;
 
-import java.awt.*;
-import java.awt.Label;
 import java.net.URL;
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 public class controller implements Initializable {
-    @FXML
-    Menu pictureEffect;
-    @FXML
-    ImageView pic = new ImageView();
-    @FXML
-    javafx.scene.control.Label name = new javafx.scene.control.Label();
-    @FXML
-    javafx.scene.control.Label binName = new javafx.scene.control.Label();
-    @FXML
-    javafx.scene.control.Label description = new javafx.scene.control.Label();
-    private int currentIndex = -1;
-
-    final Map.Entry<String, Effect>[] effects = new Map.Entry[] {
+    final Map.Entry<String, Effect>[] effects = new Map.Entry[]{
             new AbstractMap.SimpleEntry<>("Sepia Tone", new SepiaTone()),
             new AbstractMap.SimpleEntry<>("Glow", new Glow()),
             new AbstractMap.SimpleEntry<>("Shadow", new DropShadow())
     };
-
-    final PageData[] pages = new PageData[] {
+    final PageData[] pages = new PageData[]{
             new PageData("Apple",
                     "The apple is the pomaceous fruit of the apple tree, species Malus "
                             + "domestica in the rose family (Rosaceae). It is one of the most "
@@ -71,12 +55,22 @@ public class controller implements Initializable {
                             + "changes color to yellow with hard, strongly perfumed flesh.",
                     "Cydonia oblonga")
     };
-
+    @FXML
+    Menu pictureEffect;
+    @FXML
+    ImageView pic = new ImageView();
+    @FXML
+    javafx.scene.control.Label name = new javafx.scene.control.Label();
+    @FXML
+    javafx.scene.control.Label binName = new javafx.scene.control.Label();
+    @FXML
+    javafx.scene.control.Label description = new javafx.scene.control.Label();
+    private int currentIndex = -1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         final ToggleGroup groupEffect = new ToggleGroup();
-        for(Map.Entry<String,Effect> effect : effects){
+        for (Map.Entry<String, Effect> effect : effects) {
             RadioMenuItem itemEffect = new RadioMenuItem(effect.getKey());
             itemEffect.setUserData(effect.getValue());
             itemEffect.setToggleGroup(groupEffect);

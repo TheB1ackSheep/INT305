@@ -31,8 +31,6 @@
  */
 package lab3_1;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,6 +39,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Login Controller.
@@ -57,32 +58,32 @@ public class LoginController extends AnchorPane implements Initializable {
     Label errorMessage;
 
     private Main application;
-    
-    
-    public void setApp(Main application){
+
+
+    public void setApp(Main application) {
         this.application = application;
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         errorMessage.setText("");
         userId.setPromptText("demo");
         password.setPromptText("demo");
-        
+
     }
 
-    public void doClose(){
+    public void doClose() {
         System.exit(0);
     }
-    
-    
+
+
     public void processLogin(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             errorMessage.setText("Hello " + userId.getText());
         } else {
-            if (!application.userLogging(userId.getText(), password.getText())){
+            if (!application.userLogging(userId.getText(), password.getText())) {
                 errorMessage.setText("Username/Password is incorrect");
             }
         }

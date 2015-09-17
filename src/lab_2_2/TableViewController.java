@@ -10,10 +10,15 @@ import javafx.scene.control.TextField;
  * Created by Student Lab on 10/9/2558.
  */
 public class TableViewController {
-    @FXML private TableView<Person> tableView;
-    @FXML private TextField firstNameField;
-    @FXML private TextField lastNameField;
-    @FXML private TextField emailField;
+    @FXML
+    private TableView<Person> tableView;
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField emailField;
+
     @FXML
     protected void addPerson(ActionEvent event) {
         ObservableList<Person> data = tableView.getItems();

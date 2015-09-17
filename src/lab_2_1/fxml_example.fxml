@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <?language javascript?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
 <GridPane xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <fx:script source="script.js" />
+    <fx:script source="script.js"/>
     <padding>
         <Insets top="25"
                 right="25"
@@ -45,6 +45,6 @@
           GridPane.rowIndex="6"/>
 
     <stylesheets>
-        <URL value="@Login.css" />
+        <URL value="@Login.css"/>
     </stylesheets>
 </GridPane>

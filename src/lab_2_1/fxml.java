@@ -19,7 +19,7 @@ public class fxml extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("fxml_example.fxml"));
-        Scene scene= new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 300, 275);
         stage.setTitle("FXML Welcome");
         stage.setScene(scene);
         stage.show();

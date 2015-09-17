@@ -31,8 +31,6 @@
  */
 package lab3_1;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,6 +39,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import lab3_1.model.User;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * Profile Controller.
@@ -59,15 +60,15 @@ public class ProfileController extends AnchorPane implements Initializable {
     private CheckBox subscribed;
     @FXML
     private Hyperlink logout;
-    @FXML 
+    @FXML
     private Button save;
-    
-    @FXML 
+
+    @FXML
     private Label success;
-    
+
     private Main application;
-    
-    public void setApp(Main application){
+
+    public void setApp(Main application) {
         this.application = application;
         User loggedUser = application.getLoggedUser();
         user.setText(loggedUser.getId());
@@ -84,22 +85,22 @@ public class ProfileController extends AnchorPane implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void doClose(){
+    public void doClose() {
         System.exit(0);
     }
-    
+
     public void processLogout(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             return;
         }
-        
+
         application.userLogout();
     }
-    
+
     public void saveProfile(ActionEvent event) {
-        if (application == null){
+        if (application == null) {
             // We are running in isolated FXML, possibly in Scene Builder.
             // NO-OP.
             animateMessage();
@@ -112,9 +113,9 @@ public class ProfileController extends AnchorPane implements Initializable {
         loggedUser.setAddress(address.getText());
         animateMessage();
     }
-    
-    public void resetProfile(ActionEvent event){
-        if (application == null){
+
+    public void resetProfile(ActionEvent event) {
+        if (application == null) {
             return;
         }
         email.setText("");
@@ -122,7 +123,7 @@ public class ProfileController extends AnchorPane implements Initializable {
         subscribed.setSelected(false);
         address.setText("");
         success.setOpacity(0.0);
-        
+
     }
 
     private void animateMessage() {

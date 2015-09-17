@@ -10,10 +10,11 @@ public class PageData {
     public String description;
     public String binNames;
     public Image image;
+
     public PageData(String name, String description, String binNames) {
         this.name = name;
         this.description = description;
         this.binNames = binNames;
-        image = new Image("lab3_2/"+name + ".jpg");
+        image = new Image("lab3_2/" + name + ".jpg");
     }
 }

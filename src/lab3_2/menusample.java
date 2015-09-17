@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import lab3_1.LoginController;
 
 import java.io.IOException;
 
@@ -20,7 +19,7 @@ public class menusample extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-        Scene scene= new Scene(root, 300, 275);
+        Scene scene = new Scene(root, 300, 275);
         primaryStage.setTitle("FXML Welcome");
         primaryStage.setScene(scene);
         primaryStage.show();
